@@ -18,6 +18,7 @@ fun PantallaListaTickets(
     nombreUsuario: String,
     rol: String,
     onCambiarEstado: (id: Int, nuevoEstado: String) -> Unit = { _, _ -> },
+    onBorrarTicket: (id: Int) -> Unit = {},
     onNuevoReporte: () -> Unit = {},
     onCerrarSesion: () -> Unit = {}
 ) {
@@ -83,6 +84,9 @@ fun PantallaListaTickets(
                             esMantenimiento = rol == "MANTENIMIENTO",
                             onCambiarEstado = { nuevoEstado ->
                                 onCambiarEstado(ticket.id, nuevoEstado)
+                            },
+                            onBorrarTicket = {
+                                onBorrarTicket(ticket.id)
                             }
                         )
                     }
@@ -96,7 +100,8 @@ fun PantallaListaTickets(
 fun CardTicket(
     ticket: Ticket,
     esMantenimiento: Boolean,
-    onCambiarEstado: (nuevoEstado: String) -> Unit
+    onCambiarEstado: (nuevoEstado: String) -> Unit,
+    onBorrarTicket: () -> Unit
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -136,14 +141,30 @@ fun CardTicket(
 
             if (esMantenimiento) {
                 Spacer(modifier = Modifier.height(4.dp))
-                Button(
-                    onClick = {
-                        val nuevo = if (ticket.estado == "Resuelto") "Pendiente" else "Resuelto"
-                        onCambiarEstado(nuevo)
-                    },
-                    modifier = Modifier.align(Alignment.End)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(if (ticket.estado == "Resuelto") "Marcar Pendiente" else "Marcar Resuelto")
+                    OutlinedButton(
+                        onClick = onBorrarTicket,
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = MaterialTheme.colorScheme.error
+                        )
+                    ) {
+                        Text("Borrar")
+                    }
+
+                    Spacer(modifier = Modifier.width(8.dp))
+
+                    Button(
+                        onClick = {
+                            val nuevo = if (ticket.estado == "Resuelto") "Pendiente" else "Resuelto"
+                            onCambiarEstado(nuevo)
+                        }
+                    ) {
+                        Text(if (ticket.estado == "Resuelto") "Marcar Pendiente" else "Marcar Resuelto")
+                    }
                 }
             }
         }

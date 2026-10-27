@@ -84,6 +84,17 @@ class MainActivity : ComponentActivity() {
                                         cargarTickets()
                                     }
                                 },
+                                onBorrarTicket = { id ->
+                                    coroutineScope.launch {
+                                        db.ticketDao().eliminar(id)
+                                        Toast.makeText(
+                                            this@MainActivity,
+                                            "Reporte eliminado",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        cargarTickets()
+                                    }
+                                },
                                 onNuevoReporte = {
                                     pantallaActual = Pantalla.FORMULARIO
                                 },

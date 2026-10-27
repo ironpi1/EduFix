@@ -26,7 +26,7 @@ fun PantallaFormulario(
                 title = { Text("Reportar Incidencia") },
                 navigationIcon = {
                     TextButton(onClick = onVolver) {
-                        Text("← Volver")
+                        Text("Cerrar sesión")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

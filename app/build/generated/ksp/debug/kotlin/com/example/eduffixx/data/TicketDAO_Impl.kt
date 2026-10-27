@@ -104,6 +104,20 @@ public class TicketDAO_Impl(
     }
   }
 
+  public override suspend fun eliminar(id: Int) {
+    val _sql: String = "DELETE FROM tickets WHERE id = ?"
+    return performSuspending(__db, false, true) { _connection ->
+      val _stmt: SQLiteStatement = _connection.prepare(_sql)
+      try {
+        var _argIndex: Int = 1
+        _stmt.bindLong(_argIndex, id.toLong())
+        _stmt.step()
+      } finally {
+        _stmt.close()
+      }
+    }
+  }
+
   public override suspend fun eliminarTodos() {
     val _sql: String = "DELETE FROM tickets"
     return performSuspending(__db, false, true) { _connection ->
