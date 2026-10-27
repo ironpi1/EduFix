@@ -1,0 +1,8 @@
+com.example.eduffixx.app-pngs-0 C:\Users\naczu\EduFix\app\build\generated\res\pngs\debug
+com.example.eduffixx.app-updated_navigation_xml-1 C:\Users\naczu\EduFix\app\build\generated\updated_navigation_xml\debug
+com.example.eduffixx.app-packageDebugResources-2 C:\Users\naczu\EduFix\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.eduffixx.app-packageDebugResources-3 C:\Users\naczu\EduFix\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.eduffixx.app-debug-4 C:\Users\naczu\EduFix\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.eduffixx.app-debug-5 C:\Users\naczu\EduFix\app\src\debug\res
+com.example.eduffixx.app-main-6 C:\Users\naczu\EduFix\app\src\main\res
+gradleHome-0 C:\Users\naczu\.gradle
