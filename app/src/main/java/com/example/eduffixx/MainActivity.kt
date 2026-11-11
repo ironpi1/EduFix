@@ -13,11 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.room.Room
 import com.example.eduffixx.data.AppDataBases
 import com.example.eduffixx.data.Ticket
+import com.example.eduffixx.data.Usuario
 import com.example.eduffixx.ui.theme.EduFfixXTheme
 import kotlinx.coroutines.launch
 
 enum class Pantalla {
     LOGIN,
+    REGISTRO,
     LISTA,
     FORMULARIO
 }
@@ -33,7 +35,9 @@ class MainActivity : ComponentActivity() {
             applicationContext,
             AppDataBases::class.java,
             "eduffix_db"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
 
         enableEdgeToEdge()
         setContent {
@@ -64,11 +68,56 @@ class MainActivity : ComponentActivity() {
                     when (pantallaActual) {
                         Pantalla.LOGIN -> {
                             PantallaLogin(
-                                onIngresar = { rol, nombre ->
-                                    val nombreFinal = nombre.ifBlank { "Anónimo" }
-                                    rolUsuario = rol
-                                    nombreUsuario = nombreFinal
-                                    pantallaActual = Pantalla.LISTA
+                                onIngresar = { rut, contrasena ->
+                                    coroutineScope.launch {
+                                        val usuario = db.usuarioDao().iniciar(rut, contrasena)
+                                        if (usuario != null) {
+                                            nombreUsuario = usuario.nombre
+                                            rolUsuario = usuario.rol
+                                            Toast.makeText(
+                                                this@MainActivity,
+                                                "Bienvenido ${usuario.nombre}",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            pantallaActual = Pantalla.LISTA
+                                        } else {
+                                            Toast.makeText(
+                                                this@MainActivity,
+                                                "RUT o contraseña incorrectos",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    }
+                                },
+                                onIrARegistro = {
+                                    pantallaActual = Pantalla.REGISTRO
+                                }
+                            )
+                        }
+
+                        Pantalla.REGISTRO -> {
+                            PantallaRegistro(
+                                onRegistrar = { nombre, rut, contrasena, rol ->
+                                    coroutineScope.launch {
+                                        val nuevoUsuario = Usuario(
+                                            rut = rut,
+                                            nombre = nombre,
+                                            contrasena = contrasena,
+                                            rol = rol
+                                        )
+                                        db.usuarioDao().registrar(nuevoUsuario)
+                                        nombreUsuario = nombre
+                                        rolUsuario = rol
+                                        Toast.makeText(
+                                            this@MainActivity,
+                                            "Cuenta registrada con éxito",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                        pantallaActual = Pantalla.LISTA
+                                    }
+                                },
+                                onVolverLogin = {
+                                    pantallaActual = Pantalla.LOGIN
                                 }
                             )
                         }

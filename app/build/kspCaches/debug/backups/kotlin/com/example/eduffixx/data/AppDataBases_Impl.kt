@@ -31,16 +31,22 @@ public class AppDataBases_Impl : AppDataBases() {
     TicketDAO_Impl(this)
   }
 
+  private val _usuarioDAO: Lazy<UsuarioDAO> = lazy {
+    UsuarioDAO_Impl(this)
+  }
+
   protected override fun createOpenDelegate(): RoomOpenDelegate {
-    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(1, "681d9a3cde2d750c5566ec9efd8f789d", "1147a884b384aceb12854d9ac7d6be90") {
+    val _openDelegate: RoomOpenDelegate = object : RoomOpenDelegate(2, "75f5a336af1ca30acfecb944558a8bc2", "53f3af61f7db1656fbd43f6e2a44deef") {
       public override fun createAllTables(connection: SQLiteConnection) {
         connection.execSQL("CREATE TABLE IF NOT EXISTS `tickets` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `titulo` TEXT NOT NULL, `ubicacion` TEXT NOT NULL, `descripcion` TEXT NOT NULL, `estado` TEXT NOT NULL, `imagenUri` TEXT)")
+        connection.execSQL("CREATE TABLE IF NOT EXISTS `usuarios` (`rut` TEXT NOT NULL, `nombre` TEXT NOT NULL, `contrasena` TEXT NOT NULL, `rol` TEXT NOT NULL, PRIMARY KEY(`rut`))")
         connection.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)")
-        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '681d9a3cde2d750c5566ec9efd8f789d')")
+        connection.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '75f5a336af1ca30acfecb944558a8bc2')")
       }
 
       public override fun dropAllTables(connection: SQLiteConnection) {
         connection.execSQL("DROP TABLE IF EXISTS `tickets`")
+        connection.execSQL("DROP TABLE IF EXISTS `usuarios`")
       }
 
       public override fun onCreate(connection: SQLiteConnection) {
@@ -78,6 +84,24 @@ public class AppDataBases_Impl : AppDataBases() {
               | Found:
               |""".trimMargin() + _existingTickets)
         }
+        val _columnsUsuarios: MutableMap<String, TableInfo.Column> = mutableMapOf()
+        _columnsUsuarios.put("rut", TableInfo.Column("rut", "TEXT", true, 1, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsuarios.put("nombre", TableInfo.Column("nombre", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsuarios.put("contrasena", TableInfo.Column("contrasena", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        _columnsUsuarios.put("rol", TableInfo.Column("rol", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY))
+        val _foreignKeysUsuarios: MutableSet<TableInfo.ForeignKey> = mutableSetOf()
+        val _indicesUsuarios: MutableSet<TableInfo.Index> = mutableSetOf()
+        val _infoUsuarios: TableInfo = TableInfo("usuarios", _columnsUsuarios, _foreignKeysUsuarios, _indicesUsuarios)
+        val _existingUsuarios: TableInfo = read(connection, "usuarios")
+        if (!_infoUsuarios.equals(_existingUsuarios)) {
+          return RoomOpenDelegate.ValidationResult(false, """
+              |usuarios(com.example.eduffixx.data.Usuario).
+              | Expected:
+              |""".trimMargin() + _infoUsuarios + """
+              |
+              | Found:
+              |""".trimMargin() + _existingUsuarios)
+        }
         return RoomOpenDelegate.ValidationResult(true, null)
       }
     }
@@ -87,16 +111,17 @@ public class AppDataBases_Impl : AppDataBases() {
   protected override fun createInvalidationTracker(): InvalidationTracker {
     val _shadowTablesMap: MutableMap<String, String> = mutableMapOf()
     val _viewTables: MutableMap<String, Set<String>> = mutableMapOf()
-    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "tickets")
+    return InvalidationTracker(this, _shadowTablesMap, _viewTables, "tickets", "usuarios")
   }
 
   public override fun clearAllTables() {
-    super.performClear(false, "tickets")
+    super.performClear(false, "tickets", "usuarios")
   }
 
   protected override fun getRequiredTypeConverterClasses(): Map<KClass<*>, List<KClass<*>>> {
     val _typeConvertersMap: MutableMap<KClass<*>, List<KClass<*>>> = mutableMapOf()
     _typeConvertersMap.put(TicketDAO::class, TicketDAO_Impl.getRequiredConverters())
+    _typeConvertersMap.put(UsuarioDAO::class, UsuarioDAO_Impl.getRequiredConverters())
     return _typeConvertersMap
   }
 
@@ -111,4 +136,6 @@ public class AppDataBases_Impl : AppDataBases() {
   }
 
   public override fun ticketDao(): TicketDAO = _ticketDAO.value
+
+  public override fun usuarioDao(): UsuarioDAO = _usuarioDAO.value
 }
