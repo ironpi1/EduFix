@@ -22,6 +22,7 @@ fun PantallaRegistro(
     var nombre by remember { mutableStateOf("") }
     var rut by remember { mutableStateOf("") }
     var contrasena by remember { mutableStateOf("") }
+    var confirmarContrasena by remember { mutableStateOf("") }
     var rolSeleccionado by remember { mutableStateOf("SOLICITANTE") }
     var errorMensaje by remember { mutableStateOf("") }
 
@@ -43,7 +44,7 @@ fun PantallaRegistro(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             Text(
                 text = "Crear nueva cuenta",
@@ -56,7 +57,7 @@ fun PantallaRegistro(
                 value = nombre,
                 onValueChange = {
                     nombre = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
                 label = { Text("Nombre Completo") },
                 placeholder = { Text("Ej: Juan Pérez") },
@@ -68,7 +69,7 @@ fun PantallaRegistro(
                 value = rut,
                 onValueChange = {
                     rut = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
                 label = { Text("RUT / Identificador") },
                 placeholder = { Text("Ej: 12.345.678-9") },
@@ -80,9 +81,22 @@ fun PantallaRegistro(
                 value = contrasena,
                 onValueChange = {
                     contrasena = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
-                label = { Text("Contraseña") },
+                label = { Text("Contraseña (mín. 6 caracteres)") },
+                visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                modifier = Modifier.fillMaxWidth(),
+                singleLine = true
+            )
+
+            OutlinedTextField(
+                value = confirmarContrasena,
+                onValueChange = {
+                    confirmarContrasena = it
+                    errorMensaje = ""
+                },
+                label = { Text("Confirmar Contraseña") },
                 visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
                 modifier = Modifier.fillMaxWidth(),
@@ -119,14 +133,30 @@ fun PantallaRegistro(
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             Button(
                 onClick = {
-                    if (nombre.isBlank() || rut.isBlank() || contrasena.isBlank()) {
-                        errorMensaje = "Por favor, completa todos los campos para registrarte."
-                    } else {
-                        onRegistrar(nombre.trim(), rut.trim(), contrasena.trim(), rolSeleccionado)
+                    val nombreLimpio = nombre.trim()
+                    val rutLimpio = rut.trim()
+                    val rutRegex = Regex("^\\d{1,2}(\\.?\\d{3}){2}-[0-9kK]$")
+
+                    when {
+                        nombreLimpio.length < 3 -> {
+                            errorMensaje = "El nombre debe tener al menos 3 caracteres."
+                        }
+                        !rutRegex.matches(rutLimpio) -> {
+                            errorMensaje = "Formato de RUT inválido (Ej: 12.345.678-9 o 12345678-9)."
+                        }
+                        contrasena.length < 6 -> {
+                            errorMensaje = "La contraseña debe tener al menos 6 caracteres."
+                        }
+                        contrasena != confirmarContrasena -> {
+                            errorMensaje = "Las contraseñas no coinciden."
+                        }
+                        else -> {
+                            onRegistrar(nombreLimpio, rutLimpio, contrasena.trim(), rolSeleccionado)
+                        }
                     }
                 },
                 modifier = Modifier.fillMaxWidth()

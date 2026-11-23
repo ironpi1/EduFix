@@ -155,12 +155,13 @@ class MainActivity : ComponentActivity() {
 
                         Pantalla.FORMULARIO -> {
                             PantallaFormulario(
-                                onEnviarTicket = { titulo, ubicacion, descripcion ->
+                                onEnviarTicket = { titulo, ubicacion, descripcion, imagenUri ->
                                     coroutineScope.launch {
                                         val nuevoTicket = Ticket(
                                             titulo = titulo,
                                             ubicacion = ubicacion,
-                                            descripcion = descripcion
+                                            descripcion = descripcion,
+                                            imagenUri = imagenUri
                                         )
                                         db.ticketDao().insertar(nuevoTicket)
                                         Toast.makeText(

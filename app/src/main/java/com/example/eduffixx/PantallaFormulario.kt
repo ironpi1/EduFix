@@ -1,24 +1,75 @@
 package com.example.eduffixx
 
+import android.Manifest
+import android.content.Context
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import coil.compose.AsyncImage
+import java.io.File
+import java.io.FileOutputStream
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PantallaFormulario(
-    onEnviarTicket: (titulo: String, ubicacion: String, descripcion: String) -> Unit,
+    onEnviarTicket: (titulo: String, ubicacion: String, descripcion: String, imagenUri: String?) -> Unit,
     onVolver: () -> Unit = {}
 ) {
+    val context = LocalContext.current
+
     var titulo by remember { mutableStateOf("") }
     var ubicacion by remember { mutableStateOf("") }
     var descripcion by remember { mutableStateOf("") }
+    var imagenUri by remember { mutableStateOf<Uri?>(null) }
     var errorMensaje by remember { mutableStateOf("") }
+
+    val galeriaLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.GetContent()
+    ) { uri: Uri? ->
+        if (uri != null) {
+            imagenUri = uri
+            errorMensaje = ""
+        }
+    }
+
+    val camaraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicturePreview()
+    ) { bitmap: Bitmap? ->
+        if (bitmap != null) {
+            imagenUri = guardarBitmapEnCache(context, bitmap)
+            errorMensaje = ""
+        }
+    }
+
+    val permisoCamaraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission()
+    ) { concedido: Boolean ->
+        if (concedido) {
+            camaraLauncher.launch(null)
+        } else {
+            Toast.makeText(
+                context,
+                "Permiso de cámara denegado. Puedes adjuntar desde la galería.",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -26,7 +77,7 @@ fun PantallaFormulario(
                 title = { Text("Reportar Incidencia") },
                 navigationIcon = {
                     TextButton(onClick = onVolver) {
-                        Text("Cerrar sesión")
+                        Text("Volver")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -43,7 +94,7 @@ fun PantallaFormulario(
                 .fillMaxSize()
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(16.dp)
+            verticalArrangement = Arrangement.spacedBy(14.dp)
         ) {
             Text(
                 text = "Formulario de Reporte de Daños",
@@ -51,20 +102,14 @@ fun PantallaFormulario(
                 color = MaterialTheme.colorScheme.primary
             )
 
-            Text(
-                text = "Completa los campos para notificar sobre daños estructurales o deficiencias en el colegio San Bernardo.",
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-
             OutlinedTextField(
                 value = titulo,
                 onValueChange = {
                     titulo = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
                 label = { Text("Título del problema") },
-                placeholder = { Text("Ej: Silla rota, Ventana quebrada") },
+                placeholder = { Text("Ej: Cable expuesto, Ventana quebrada") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -73,10 +118,10 @@ fun PantallaFormulario(
                 value = ubicacion,
                 onValueChange = {
                     ubicacion = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
                 label = { Text("Ubicación en el colegio") },
-                placeholder = { Text("Ej: Sala 4B, Patio principal, Baños 1er piso") },
+                placeholder = { Text("Ej: Sala 4B, Patio principal") },
                 modifier = Modifier.fillMaxWidth(),
                 singleLine = true
             )
@@ -85,14 +130,62 @@ fun PantallaFormulario(
                 value = descripcion,
                 onValueChange = {
                     descripcion = it
-                    if (errorMensaje.isNotEmpty()) errorMensaje = ""
+                    errorMensaje = ""
                 },
                 label = { Text("Descripción del problema") },
-                placeholder = { Text("Describe en detalle la deficiencia o daño observado...") },
+                placeholder = { Text("Describe en detalle la deficiencia observada...") },
                 modifier = Modifier.fillMaxWidth(),
-                minLines = 4,
-                maxLines = 6
+                minLines = 3,
+                maxLines = 5
             )
+
+            Text(
+                text = "Evidencia Fotográfica:",
+                style = MaterialTheme.typography.titleSmall,
+                modifier = Modifier.align(Alignment.Start)
+            )
+
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+                OutlinedButton(
+                    onClick = { galeriaLauncher.launch("image/*") },
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Galería")
+                }
+
+                OutlinedButton(
+                    onClick = {
+                        val tienePermiso = ContextCompat.checkSelfPermission(
+                            context,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+
+                        if (tienePermiso) {
+                            camaraLauncher.launch(null)
+                        } else {
+                            permisoCamaraLauncher.launch(Manifest.permission.CAMERA)
+                        }
+                    },
+                    modifier = Modifier.weight(1f)
+                ) {
+                    Text("Tomar Foto")
+                }
+            }
+
+            if (imagenUri != null) {
+                AsyncImage(
+                    model = imagenUri,
+                    contentDescription = "Foto del problema reportado",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(190.dp)
+                        .clip(RoundedCornerShape(12.dp)),
+                    contentScale = ContentScale.Crop
+                )
+            }
 
             if (errorMensaje.isNotEmpty()) {
                 Text(
@@ -102,14 +195,25 @@ fun PantallaFormulario(
                 )
             }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(6.dp))
 
             Button(
                 onClick = {
-                    if (titulo.isBlank() || ubicacion.isBlank() || descripcion.isBlank()) {
-                        errorMensaje = "Por favor, completa todos los campos."
-                    } else {
-                        onEnviarTicket(titulo.trim(), ubicacion.trim(), descripcion.trim())
+                    when {
+                        titulo.isBlank() || ubicacion.isBlank() || descripcion.isBlank() -> {
+                            errorMensaje = "Por favor, completa todos los campos de texto."
+                        }
+                        imagenUri == null -> {
+                            errorMensaje = "Debes adjuntar o tomar una foto como evidencia."
+                        }
+                        else -> {
+                            onEnviarTicket(
+                                titulo.trim(),
+                                ubicacion.trim(),
+                                descripcion.trim(),
+                                imagenUri.toString()
+                            )
+                        }
                     }
                 },
                 modifier = Modifier.fillMaxWidth()
@@ -118,4 +222,12 @@ fun PantallaFormulario(
             }
         }
     }
+}
+
+private fun guardarBitmapEnCache(context: Context, bitmap: Bitmap): Uri {
+    val archivo = File(context.cacheDir, "ticket_${System.currentTimeMillis()}.jpg")
+    FileOutputStream(archivo).use { out ->
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out)
+    }
+    return Uri.fromFile(archivo)
 }

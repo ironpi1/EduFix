@@ -55,6 +55,9 @@ dependencies {
     // Para generar automáticamente código adicional durante la compilación
     ksp("androidx.room:room-compiler:2.8.5")
 
+    // Permisos
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)

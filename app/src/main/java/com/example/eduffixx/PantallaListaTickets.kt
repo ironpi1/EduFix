@@ -1,4 +1,4 @@
-package com.example.eduffixx
+    package com.example.eduffixx
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,6 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.eduffixx.data.Ticket
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import coil.compose.AsyncImage
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -138,6 +142,18 @@ fun CardTicket(
                 text = ticket.descripcion,
                 style = MaterialTheme.typography.bodySmall
             )
+
+            if (!ticket.imagenUri.isNullOrEmpty()) {
+                AsyncImage(
+                    model = ticket.imagenUri,
+                    contentDescription = "Evidencia del ticket",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(160.dp)
+                        .clip(RoundedCornerShape(8.dp)),
+                    contentScale = ContentScale.Crop
+                )
+            }
 
             if (esMantenimiento) {
                 Spacer(modifier = Modifier.height(4.dp))
