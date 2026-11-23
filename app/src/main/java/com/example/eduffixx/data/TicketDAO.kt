@@ -19,6 +19,10 @@ interface TicketDAO {
     @Query("UPDATE tickets SET estado = :nuevoEstado WHERE id = :id")
     suspend fun actualizarEstado(id: Int, nuevoEstado: String)
 
+    // Elimina un ticket por su ID.
+    @Query("DELETE FROM tickets WHERE id = :id")
+    suspend fun eliminar(id: Int)
+
     // Elimina todos los registros de la tabla tickets.
     @Query("DELETE FROM tickets")
     suspend fun eliminarTodos()
