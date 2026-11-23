@@ -8,6 +8,12 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="37" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <permission
         android:name="com.example.eduffixx.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
