@@ -29,7 +29,10 @@ fun PantallaRegistro(
     var contrasena by remember { mutableStateOf("") }
     var confirmarContrasena by remember { mutableStateOf("") }
     var rolSeleccionado by remember { mutableStateOf("SOLICITANTE") }
+    var claveMantenimiento by remember { mutableStateOf("") }
     var errorMensaje by remember { mutableStateOf("") }
+
+    val CLAVE_AUTORIZADA = "MANT2026"
 
     Scaffold(
         topBar = {
@@ -120,13 +123,39 @@ fun PantallaRegistro(
             ) {
                 FilterChip(
                     selected = rolSeleccionado == "SOLICITANTE",
-                    onClick = { rolSeleccionado = "SOLICITANTE" },
+                    onClick = {
+                        rolSeleccionado = "SOLICITANTE"
+                        errorMensaje = ""
+                    },
                     label = { Text("Solicitante") }
                 )
                 FilterChip(
                     selected = rolSeleccionado == "MANTENIMIENTO",
-                    onClick = { rolSeleccionado = "MANTENIMIENTO" },
+                    onClick = {
+                        rolSeleccionado = "MANTENIMIENTO"
+                        errorMensaje = ""
+                    },
                     label = { Text("Mantenimiento") }
+                )
+            }
+
+            AnimatedVisibility(
+                visible = rolSeleccionado == "MANTENIMIENTO",
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
+                OutlinedTextField(
+                    value = claveMantenimiento,
+                    onValueChange = {
+                        claveMantenimiento = it
+                        errorMensaje = ""
+                    },
+                    label = { Text("Clave de Autorización Mantenimiento") },
+                    placeholder = { Text("Ingresa la clave autorizada") },
+                    visualTransformation = PasswordVisualTransformation(),
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                    modifier = Modifier.fillMaxWidth(),
+                    singleLine = true
                 )
             }
 
@@ -162,6 +191,9 @@ fun PantallaRegistro(
                         }
                         contrasena != confirmarContrasena -> {
                             errorMensaje = "Las contraseñas no coinciden."
+                        }
+                        rolSeleccionado == "MANTENIMIENTO" && claveMantenimiento.trim() != CLAVE_AUTORIZADA -> {
+                            errorMensaje = "Clave de autorización incorrecta para el rol Mantenimiento. (Clave: MANT2026)"
                         }
                         else -> {
                             onRegistrar(nombreLimpio, rutLimpio, contrasena.trim(), rolSeleccionado)

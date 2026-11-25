@@ -24,10 +24,12 @@ import com.example.eduffixx.ui.theme.EduFfixXTheme
 import kotlinx.coroutines.launch
 
 enum class Pantalla {
+    BIENVENIDA,
     LOGIN,
     REGISTRO,
     LISTA,
-    FORMULARIO
+    FORMULARIO,
+    PERFIL
 }
 
 class MainActivity : ComponentActivity() {
@@ -52,7 +54,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    var pantallaActual by remember { mutableStateOf(Pantalla.LOGIN) }
+                    var pantallaActual by remember { mutableStateOf(Pantalla.BIENVENIDA) }
+                    var rutUsuario by remember { mutableStateOf("") }
                     var nombreUsuario by remember { mutableStateOf("") }
                     var rolUsuario by remember { mutableStateOf("") }
 
@@ -80,12 +83,24 @@ class MainActivity : ComponentActivity() {
                         label = "TransicionPantallas"
                     ) { targetPantalla ->
                         when (targetPantalla) {
+                            Pantalla.BIENVENIDA -> {
+                                PantallaBienvenida(
+                                    onIrALogin = {
+                                        pantallaActual = Pantalla.LOGIN
+                                    },
+                                    onIrARegistro = {
+                                        pantallaActual = Pantalla.REGISTRO
+                                    }
+                                )
+                            }
+
                             Pantalla.LOGIN -> {
                                 PantallaLogin(
                                     onIngresar = { rut, contrasena ->
                                         coroutineScope.launch {
                                             val usuario = db.usuarioDao().iniciar(rut, contrasena)
                                             if (usuario != null) {
+                                                rutUsuario = usuario.rut
                                                 nombreUsuario = usuario.nombre
                                                 rolUsuario = usuario.rol
                                                 Toast.makeText(
@@ -120,6 +135,7 @@ class MainActivity : ComponentActivity() {
                                                 rol = rol
                                             )
                                             db.usuarioDao().registrar(nuevoUsuario)
+                                            rutUsuario = rut
                                             nombreUsuario = nombre
                                             rolUsuario = rol
                                             Toast.makeText(
@@ -161,8 +177,11 @@ class MainActivity : ComponentActivity() {
                                     onNuevoReporte = {
                                         pantallaActual = Pantalla.FORMULARIO
                                     },
+                                    onEditarPerfil = {
+                                        pantallaActual = Pantalla.PERFIL
+                                    },
                                     onCerrarSesion = {
-                                        pantallaActual = Pantalla.LOGIN
+                                        pantallaActual = Pantalla.BIENVENIDA
                                     }
                                 )
                             }
@@ -184,6 +203,41 @@ class MainActivity : ComponentActivity() {
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             pantallaActual = Pantalla.LISTA
+                                        }
+                                    },
+                                    onVolver = {
+                                        pantallaActual = Pantalla.LISTA
+                                    }
+                                )
+                            }
+
+                            Pantalla.PERFIL -> {
+                                PantallaEditarPerfil(
+                                    rutUsuario = rutUsuario,
+                                    nombreActual = nombreUsuario,
+                                    rolUsuario = rolUsuario,
+                                    onGuardarCambios = { nuevoNombre, nuevaContrasena ->
+                                        coroutineScope.launch {
+                                            val usuarioExistente = db.usuarioDao().obtenerPorRut(rutUsuario)
+                                            if (usuarioExistente != null) {
+                                                val contrasenaFinal = if (nuevaContrasena.isBlank()) {
+                                                    usuarioExistente.contrasena
+                                                } else {
+                                                    nuevaContrasena
+                                                }
+                                                val usuarioActualizado = usuarioExistente.copy(
+                                                    nombre = nuevoNombre,
+                                                    contrasena = contrasenaFinal
+                                                )
+                                                db.usuarioDao().actualizar(usuarioActualizado)
+                                                nombreUsuario = nuevoNombre
+                                                Toast.makeText(
+                                                    this@MainActivity,
+                                                    "Perfil actualizado con éxito",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+                                                pantallaActual = Pantalla.LISTA
+                                            }
                                         }
                                     },
                                     onVolver = {
