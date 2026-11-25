@@ -33,6 +33,7 @@ fun PantallaListaTickets(
     onCambiarEstado: (id: Int, nuevoEstado: String) -> Unit = { _, _ -> },
     onBorrarTicket: (id: Int) -> Unit = {},
     onNuevoReporte: () -> Unit = {},
+    onEditarPerfil: () -> Unit = {},
     onCerrarSesion: () -> Unit = {}
 ) {
     Scaffold(
@@ -40,6 +41,9 @@ fun PantallaListaTickets(
             TopAppBar(
                 title = { Text("Colegio San Bernardo - Reportes") },
                 actions = {
+                    TextButton(onClick = onEditarPerfil) {
+                        Text("Perfil")
+                    }
                     TextButton(onClick = onCerrarSesion) {
                         Text("Salir")
                     }
@@ -67,11 +71,24 @@ fun PantallaListaTickets(
                 .padding(16.dp)
                 .fillMaxSize()
         ) {
-            Text(
-                text = "Usuario: $nombreUsuario ($rol)",
-                style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.secondary
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = "Usuario: $nombreUsuario ($rol)",
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+
+                OutlinedButton(
+                    onClick = onEditarPerfil,
+                    contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp)
+                ) {
+                    Text("Editar Perfil", style = MaterialTheme.typography.labelMedium)
+                }
+            }
 
             Spacer(modifier = Modifier.height(12.dp))
 
