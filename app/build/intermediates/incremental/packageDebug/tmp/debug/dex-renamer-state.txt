@@ -1,11 +1,11 @@
-#Mon Nov 23 04:13:08 GMT-03:00 2026
-base.0=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
-base.3=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.4=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
-base.5=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\global_synthetics_dex\\debug\\generateDebugGlobalSynthetics\\classes.dex
-base.6=C\:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Wed Nov 25 02:39:15 GMT-03:00 2026
+base.0=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\2\\classes.dex
+base.3=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.4=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\8\\classes.dex
+base.5=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\global_synthetics_dex\\debug\\generateDebugGlobalSynthetics\\classes.dex
+base.6=C\:\\Users\\naczu\\EduFix\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=2/classes.dex

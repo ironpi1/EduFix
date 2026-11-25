@@ -1,10 +1,19 @@
-    package com.example.eduffixx
+package com.example.eduffixx
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -107,8 +116,19 @@ fun CardTicket(
     onCambiarEstado: (nuevoEstado: String) -> Unit,
     onBorrarTicket: () -> Unit
 ) {
+    var expandido by remember { mutableStateOf(true) }
+
+    val colorEstado by animateColorAsState(
+        targetValue = if (ticket.estado == "Resuelto") Color(0xFF2E7D32) else Color(0xFFD32F2F),
+        animationSpec = tween(durationMillis = 600),
+        label = "ColorEstadoTicket"
+    )
+
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { expandido = !expandido }
+            .animateContentSize(animationSpec = tween(400)),
         colors = CardDefaults.cardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant
         )
@@ -126,11 +146,17 @@ fun CardTicket(
                     text = ticket.titulo,
                     style = MaterialTheme.typography.titleMedium
                 )
-                Text(
-                    text = ticket.estado,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = if (ticket.estado == "Resuelto") Color(0xFF2E7D32) else Color(0xFFD32F2F)
-                )
+                Surface(
+                    color = colorEstado.copy(alpha = 0.15f),
+                    shape = RoundedCornerShape(12.dp)
+                ) {
+                    Text(
+                        text = ticket.estado,
+                        style = MaterialTheme.typography.labelMedium,
+                        color = colorEstado,
+                        modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp)
+                    )
+                }
             }
 
             Text(
@@ -138,48 +164,56 @@ fun CardTicket(
                 style = MaterialTheme.typography.bodyMedium
             )
 
-            Text(
-                text = ticket.descripcion,
-                style = MaterialTheme.typography.bodySmall
-            )
+            AnimatedVisibility(
+                visible = expandido,
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = ticket.descripcion,
+                        style = MaterialTheme.typography.bodySmall
+                    )
 
-            if (!ticket.imagenUri.isNullOrEmpty()) {
-                AsyncImage(
-                    model = ticket.imagenUri,
-                    contentDescription = "Evidencia del ticket",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(160.dp)
-                        .clip(RoundedCornerShape(8.dp)),
-                    contentScale = ContentScale.Crop
-                )
-            }
-
-            if (esMantenimiento) {
-                Spacer(modifier = Modifier.height(4.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.End,
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    OutlinedButton(
-                        onClick = onBorrarTicket,
-                        colors = ButtonDefaults.outlinedButtonColors(
-                            contentColor = MaterialTheme.colorScheme.error
+                    if (!ticket.imagenUri.isNullOrEmpty()) {
+                        AsyncImage(
+                            model = ticket.imagenUri,
+                            contentDescription = "Evidencia del ticket",
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(160.dp)
+                                .clip(RoundedCornerShape(8.dp)),
+                            contentScale = ContentScale.Crop
                         )
-                    ) {
-                        Text("Borrar")
                     }
 
-                    Spacer(modifier = Modifier.width(8.dp))
+                    if (esMantenimiento) {
+                        Spacer(modifier = Modifier.height(4.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.End,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            OutlinedButton(
+                                onClick = onBorrarTicket,
+                                colors = ButtonDefaults.outlinedButtonColors(
+                                    contentColor = MaterialTheme.colorScheme.error
+                                )
+                            ) {
+                                Text("Borrar")
+                            }
 
-                    Button(
-                        onClick = {
-                            val nuevo = if (ticket.estado == "Resuelto") "Pendiente" else "Resuelto"
-                            onCambiarEstado(nuevo)
+                            Spacer(modifier = Modifier.width(8.dp))
+
+                            Button(
+                                onClick = {
+                                    val nuevo = if (ticket.estado == "Resuelto") "Pendiente" else "Resuelto"
+                                    onCambiarEstado(nuevo)
+                                }
+                            ) {
+                                Text(if (ticket.estado == "Resuelto") "Marcar Pendiente" else "Marcar Resuelto")
+                            }
                         }
-                    ) {
-                        Text(if (ticket.estado == "Resuelto") "Marcar Pendiente" else "Marcar Resuelto")
                     }
                 }
             }
