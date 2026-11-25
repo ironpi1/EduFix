@@ -4,7 +4,24 @@
             "outputFile": "com.example.eduffixx.app-mergeDebugResources-39:/values/values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\b1287ad0b13d4a9a1578f03c1dc5af54\\transformed\\startup-runtime-1.1.1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "82",
+                        "endOffsets": "133"
+                    },
+                    "to": {
+                        "startLines": "202",
+                        "startColumns": "4",
+                        "startOffsets": "9876",
+                        "endColumns": "82",
+                        "endOffsets": "9954"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\EduFix\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "7,2,3,4,5,6,8",
                         "startColumns": "4,4,4,4,4,4,4",
@@ -21,7 +38,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\9a40fe7db60b2acfca2a7c76f00746f0\\transformed\\ui\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\158eaef8b842a41e05b4d61c91f4b345\\transformed\\material\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "57",
+                        "endOffsets": "108"
+                    },
+                    "to": {
+                        "startLines": "288",
+                        "startColumns": "4",
+                        "startOffsets": "16114",
+                        "endColumns": "57",
+                        "endOffsets": "16167"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\9a40fe7db60b2acfca2a7c76f00746f0\\transformed\\ui\\res\\values\\values.xml",
                     "from": {
                         "startLines": "34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,64",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -40,234 +74,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\a11665589e5e7aa76219d7651cc6a1ea\\transformed\\appcompat-resources-1.6.1\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,18,24,34,50",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,480,658,942,1353",
-                        "endLines": "17,23,33,49,53",
-                        "endColumns": "24,24,24,24,24",
-                        "endOffsets": "475,653,937,1348,1475"
-                    },
-                    "to": {
-                        "startLines": "350,366,372,565,581",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "19768,20193,20371,27212,27623",
-                        "endLines": "365,371,381,580,584",
-                        "endColumns": "24,24,24,24,24",
-                        "endOffsets": "20188,20366,20650,27618,27745"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\a408e64284d0cd0386795a3adf22b0d8\\transformed\\lifecycle-runtime\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "42",
-                        "endOffsets": "93"
-                    },
-                    "to": {
-                        "startLines": "192",
-                        "startColumns": "4",
-                        "startOffsets": "9272",
-                        "endColumns": "42",
-                        "endOffsets": "9310"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\467f6bd239ab70ef2ae45a06dd3344a3\\transformed\\transition-1.6.0\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,95,142,185,240,287,332,386,442,494,546,595,656",
-                        "endColumns": "39,46,42,54,46,44,53,55,51,51,48,60,49",
-                        "endOffsets": "90,137,180,235,282,327,381,437,489,541,590,651,701"
-                    },
-                    "to": {
-                        "startLines": "152,153,160,163,164,183,184,185,186,187,188,189,190",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "7200,7240,7583,7735,7790,8810,8855,8909,8965,9017,9069,9118,9179",
-                        "endColumns": "39,46,42,54,46,44,53,55,51,51,48,60,49",
-                        "endOffsets": "7235,7282,7621,7785,7832,8850,8904,8960,9012,9064,9113,9174,9224"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\fa0d5b4ce95b917079bc23745a69ec07\\transformed\\customview-poolingcontainer-1.0.0\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,109",
-                        "endColumns": "53,66",
-                        "endOffsets": "104,171"
-                    },
-                    "to": {
-                        "startLines": "157,161",
-                        "startColumns": "4,4",
-                        "startOffsets": "7459,7626",
-                        "endColumns": "53,66",
-                        "endOffsets": "7508,7688"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\cf27d292f899544b8b6bee01e246d28a\\transformed\\foundation\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,111,185,241",
-                        "endColumns": "55,73,55,54",
-                        "endOffsets": "106,180,236,291"
-                    },
-                    "to": {
-                        "startLines": "149,200,302,303",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "7031,9736,16864,16920",
-                        "endColumns": "55,73,55,54",
-                        "endOffsets": "7082,9805,16915,16970"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\17ccc783a9274b54fa0a27707a58a5a2\\transformed\\material3\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,84",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "100,173,261,347,428,512,581,646,729,835,921,1041,1095,1164,1225,1294,1383,1478,1552,1649,1742,1840,1989,2080,2168,2264,2362,2426,2494,2581,2675,2742,2814,2886,2987,3096,3172,3241,3289,3355,3419,3493,3568,3639,3696,3753,3811,3883,3950,4000,4069,4123,4194,4265,4335,4404,4462,4538,4609,4683,4769,4819,4924,5021,5091,5156,5233,5315,6093",
-                        "endLines": "2,3,4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,83,86",
-                        "endColumns": "72,87,85,80,83,68,64,82,105,85,13,53,68,60,68,88,94,73,96,92,97,13,90,87,95,97,63,67,86,93,66,71,71,100,108,75,68,47,65,63,73,74,70,56,56,57,71,66,49,68,53,70,70,69,68,57,75,70,73,85,49,104,96,69,64,76,81,12,12",
-                        "endOffsets": "168,256,342,423,507,576,641,724,830,916,1036,1090,1159,1220,1289,1378,1473,1547,1644,1737,1835,1984,2075,2163,2259,2357,2421,2489,2576,2670,2737,2809,2881,2982,3091,3167,3236,3284,3350,3414,3488,3563,3634,3691,3748,3806,3878,3945,3995,4064,4118,4189,4260,4330,4399,4457,4533,4604,4678,4764,4814,4919,5016,5086,5151,5228,5310,6088,6241"
-                    },
-                    "to": {
-                        "startLines": "198,218,219,220,221,222,223,224,225,226,227,230,231,232,233,234,235,236,237,238,239,240,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,307,318",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "9593,10972,11060,11146,11227,11311,11380,11445,11528,11634,11720,11840,11894,11963,12024,12093,12182,12277,12351,12448,12541,12639,12788,12879,12967,13063,13161,13225,13293,13380,13474,13541,13613,13685,13786,13895,13971,14040,14088,14154,14218,14292,14367,14438,14495,14552,14610,14682,14749,14799,14868,14922,14993,15064,15134,15203,15261,15337,15408,15482,15568,15618,15723,15820,15890,15955,16032,17087,17865",
-                        "endLines": "198,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,317,320",
-                        "endColumns": "72,87,85,80,83,68,64,82,105,85,13,53,68,60,68,88,94,73,96,92,97,13,90,87,95,97,63,67,86,93,66,71,71,100,108,75,68,47,65,63,73,74,70,56,56,57,71,66,49,68,53,70,70,69,68,57,75,70,73,85,49,104,96,69,64,76,81,12,12",
-                        "endOffsets": "9661,11055,11141,11222,11306,11375,11440,11523,11629,11715,11835,11889,11958,12019,12088,12177,12272,12346,12443,12536,12634,12783,12874,12962,13058,13156,13220,13288,13375,13469,13536,13608,13680,13781,13890,13966,14035,14083,14149,14213,14287,14362,14433,14490,14547,14605,14677,14744,14794,14863,14917,14988,15059,15129,15198,15256,15332,15403,15477,15563,15613,15718,15815,15885,15950,16027,16109,17860,18013"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\e6fa57d5cc54e115e529efe525e8c65b\\transformed\\navigationevent\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "60",
-                        "endOffsets": "111"
-                    },
-                    "to": {
-                        "startLines": "193",
-                        "startColumns": "4",
-                        "startOffsets": "9315",
-                        "endColumns": "60",
-                        "endOffsets": "9371"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\b1287ad0b13d4a9a1578f03c1dc5af54\\transformed\\startup-runtime-1.1.1\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "82",
-                        "endOffsets": "133"
-                    },
-                    "to": {
-                        "startLines": "202",
-                        "startColumns": "4",
-                        "startOffsets": "9876",
-                        "endColumns": "82",
-                        "endOffsets": "9954"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\44aef4173833abc58195784010f21099\\transformed\\ui-graphics\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    },
-                    "to": {
-                        "startLines": "154",
-                        "startColumns": "4",
-                        "startOffsets": "7287",
-                        "endColumns": "65",
-                        "endOffsets": "7348"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "17",
-                        "endColumns": "45",
-                        "endOffsets": "58"
-                    },
-                    "to": {
-                        "startLines": "203",
-                        "startColumns": "4",
-                        "startOffsets": "9959",
-                        "endColumns": "45",
-                        "endOffsets": "10000"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\158eaef8b842a41e05b4d61c91f4b345\\transformed\\material\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "57",
-                        "endOffsets": "108"
-                    },
-                    "to": {
-                        "startLines": "288",
-                        "startColumns": "4",
-                        "startOffsets": "16114",
-                        "endColumns": "57",
-                        "endOffsets": "16167"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\3443effee7d6b685d0e38c56b91ba8ba\\transformed\\window-1.5.0\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2,3,9,17,25,31,37,49,55,61,62,63,64,70,71,72,73,79,84,103,111,129",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,287,506,725,896,1066,1380,1568,1755,1808,1868,1920,2089,2134,2173,2233,2428,2586,3279,3561,4304",
-                        "endLines": "2,8,16,24,30,36,48,54,60,61,62,63,69,70,71,72,78,83,102,110,128,147",
-                        "endColumns": "58,11,11,11,11,11,11,11,11,52,59,51,11,44,38,59,24,24,24,24,24,24",
-                        "endOffsets": "109,282,501,720,891,1061,1375,1563,1750,1803,1863,1915,2084,2129,2168,2228,2423,2581,3274,3556,4299,5082"
-                    },
-                    "to": {
-                        "startLines": "2,3,9,17,28,34,40,52,58,64,65,66,67,73,74,146,339,345,398,520,528,546",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "150,209,382,601,1001,1172,1342,1656,1844,2031,2084,2144,2196,2365,2410,6862,19415,19610,21159,25404,25686,26429",
-                        "endLines": "2,8,16,24,33,39,51,57,63,64,65,66,72,73,74,146,344,349,416,527,545,564",
-                        "endColumns": "58,11,11,11,11,11,11,11,11,52,59,51,11,44,38,59,24,24,24,24,24,24",
-                        "endOffsets": "204,377,596,815,1167,1337,1651,1839,2026,2079,2139,2191,2360,2405,2444,6917,19605,19763,21847,25681,26424,27207"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\Documents\\Desarrollo Movil\\EduFix\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endColumns": "85",
-                        "endOffsets": "140"
-                    },
-                    "to": {
-                        "startLines": "330",
-                        "startColumns": "4",
-                        "startOffsets": "18806",
-                        "endColumns": "84",
-                        "endOffsets": "18886"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\5d52677169da5e4a9af568575d36012b\\transformed\\core-1.19.1\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\5d52677169da5e4a9af568575d36012b\\transformed\\core-1.19.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,105,110,116,126,161,182,190,223",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -286,24 +93,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\100883cac522428a0f299fc3581812c0\\transformed\\coil-base-2.4.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\94ffe354023a44db2071a7dbab418708\\transformed\\savedstate\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "49",
-                        "endOffsets": "100"
+                        "endColumns": "53",
+                        "endOffsets": "104"
                     },
                     "to": {
-                        "startLines": "148",
+                        "startLines": "195",
                         "startColumns": "4",
-                        "startOffsets": "6981",
-                        "endColumns": "49",
-                        "endOffsets": "7026"
+                        "startOffsets": "9436",
+                        "endColumns": "53",
+                        "endOffsets": "9485"
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\13cf88e134d49e65a577b25fd4f1a377\\transformed\\activity-1.13.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\13cf88e134d49e65a577b25fd4f1a377\\transformed\\activity-1.13.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -320,7 +127,111 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\30c8006fb67cc1c9fccfe2bcf88e5fe9\\transformed\\core-viewtree-1.0.0\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\3443effee7d6b685d0e38c56b91ba8ba\\transformed\\window-1.5.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,9,17,25,31,37,49,55,61,62,63,64,70,71,72,73,79,84,103,111,129",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,287,506,725,896,1066,1380,1568,1755,1808,1868,1920,2089,2134,2173,2233,2428,2586,3279,3561,4304",
+                        "endLines": "2,8,16,24,30,36,48,54,60,61,62,63,69,70,71,72,78,83,102,110,128,147",
+                        "endColumns": "58,11,11,11,11,11,11,11,11,52,59,51,11,44,38,59,24,24,24,24,24,24",
+                        "endOffsets": "109,282,501,720,891,1061,1375,1563,1750,1803,1863,1915,2084,2129,2168,2228,2423,2581,3274,3556,4299,5082"
+                    },
+                    "to": {
+                        "startLines": "2,3,9,17,28,34,40,52,58,64,65,66,67,73,74,146,339,345,398,520,528,546",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "150,209,382,601,1001,1172,1342,1656,1844,2031,2084,2144,2196,2365,2410,6862,19415,19610,21159,25404,25686,26429",
+                        "endLines": "2,8,16,24,33,39,51,57,63,64,65,66,72,73,74,146,344,349,416,527,545,564",
+                        "endColumns": "58,11,11,11,11,11,11,11,11,52,59,51,11,44,38,59,24,24,24,24,24,24",
+                        "endOffsets": "204,377,596,815,1167,1337,1651,1839,2026,2079,2139,2191,2360,2405,2444,6917,19605,19763,21847,25681,26424,27207"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\44aef4173833abc58195784010f21099\\transformed\\ui-graphics\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    },
+                    "to": {
+                        "startLines": "154",
+                        "startColumns": "4",
+                        "startOffsets": "7287",
+                        "endColumns": "65",
+                        "endOffsets": "7348"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\100883cac522428a0f299fc3581812c0\\transformed\\coil-base-2.4.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "49",
+                        "endOffsets": "100"
+                    },
+                    "to": {
+                        "startLines": "148",
+                        "startColumns": "4",
+                        "startOffsets": "6981",
+                        "endColumns": "49",
+                        "endOffsets": "7026"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\EduFix\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "59",
+                        "endColumns": "85",
+                        "endOffsets": "140"
+                    },
+                    "to": {
+                        "startLines": "330",
+                        "startColumns": "4",
+                        "startOffsets": "18806",
+                        "endColumns": "84",
+                        "endOffsets": "18886"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\cf27d292f899544b8b6bee01e246d28a\\transformed\\foundation\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,111,185,241",
+                        "endColumns": "55,73,55,54",
+                        "endOffsets": "106,180,236,291"
+                    },
+                    "to": {
+                        "startLines": "149,200,302,303",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "7031,9736,16864,16920",
+                        "endColumns": "55,73,55,54",
+                        "endOffsets": "7082,9805,16915,16970"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\467f6bd239ab70ef2ae45a06dd3344a3\\transformed\\transition-1.6.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,95,142,185,240,287,332,386,442,494,546,595,656",
+                        "endColumns": "39,46,42,54,46,44,53,55,51,51,48,60,49",
+                        "endOffsets": "90,137,180,235,282,327,381,437,489,541,590,651,701"
+                    },
+                    "to": {
+                        "startLines": "152,153,160,163,164,183,184,185,186,187,188,189,190",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "7200,7240,7583,7735,7790,8810,8855,8909,8965,9017,9069,9118,9179",
+                        "endColumns": "39,46,42,54,46,44,53,55,51,51,48,60,49",
+                        "endOffsets": "7235,7282,7621,7785,7832,8850,8904,8960,9012,9064,9113,9174,9224"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\30c8006fb67cc1c9fccfe2bcf88e5fe9\\transformed\\core-viewtree-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -337,7 +248,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\0f20ae9b4c7bf4fc9dff96815c0581c0\\transformed\\lifecycle-viewmodel\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\0f20ae9b4c7bf4fc9dff96815c0581c0\\transformed\\lifecycle-viewmodel\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -354,20 +265,109 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\hecto\\.gradle\\caches\\9.5.0\\transforms\\94ffe354023a44db2071a7dbab418708\\transformed\\savedstate\\res\\values\\values.xml",
+                    "source": "C:\\Users\\naczu\\EduFix\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "17",
+                        "endColumns": "45",
+                        "endOffsets": "58"
+                    },
+                    "to": {
+                        "startLines": "203",
+                        "startColumns": "4",
+                        "startOffsets": "9959",
+                        "endColumns": "45",
+                        "endOffsets": "10000"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\fa0d5b4ce95b917079bc23745a69ec07\\transformed\\customview-poolingcontainer-1.0.0\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,109",
+                        "endColumns": "53,66",
+                        "endOffsets": "104,171"
+                    },
+                    "to": {
+                        "startLines": "157,161",
+                        "startColumns": "4,4",
+                        "startOffsets": "7459,7626",
+                        "endColumns": "53,66",
+                        "endOffsets": "7508,7688"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\17ccc783a9274b54fa0a27707a58a5a2\\transformed\\material3\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,15,16,17,18,19,20,21,22,23,24,25,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,84",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "100,173,261,347,428,512,581,646,729,835,921,1041,1095,1164,1225,1294,1383,1478,1552,1649,1742,1840,1989,2080,2168,2264,2362,2426,2494,2581,2675,2742,2814,2886,2987,3096,3172,3241,3289,3355,3419,3493,3568,3639,3696,3753,3811,3883,3950,4000,4069,4123,4194,4265,4335,4404,4462,4538,4609,4683,4769,4819,4924,5021,5091,5156,5233,5315,6093",
+                        "endLines": "2,3,4,5,6,7,8,9,10,11,14,15,16,17,18,19,20,21,22,23,24,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,83,86",
+                        "endColumns": "72,87,85,80,83,68,64,82,105,85,13,53,68,60,68,88,94,73,96,92,97,13,90,87,95,97,63,67,86,93,66,71,71,100,108,75,68,47,65,63,73,74,70,56,56,57,71,66,49,68,53,70,70,69,68,57,75,70,73,85,49,104,96,69,64,76,81,12,12",
+                        "endOffsets": "168,256,342,423,507,576,641,724,830,916,1036,1090,1159,1220,1289,1378,1473,1547,1644,1737,1835,1984,2075,2163,2259,2357,2421,2489,2576,2670,2737,2809,2881,2982,3091,3167,3236,3284,3350,3414,3488,3563,3634,3691,3748,3806,3878,3945,3995,4064,4118,4189,4260,4330,4399,4457,4533,4604,4678,4764,4814,4919,5016,5086,5151,5228,5310,6088,6241"
+                    },
+                    "to": {
+                        "startLines": "198,218,219,220,221,222,223,224,225,226,227,230,231,232,233,234,235,236,237,238,239,240,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,307,318",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "9593,10972,11060,11146,11227,11311,11380,11445,11528,11634,11720,11840,11894,11963,12024,12093,12182,12277,12351,12448,12541,12639,12788,12879,12967,13063,13161,13225,13293,13380,13474,13541,13613,13685,13786,13895,13971,14040,14088,14154,14218,14292,14367,14438,14495,14552,14610,14682,14749,14799,14868,14922,14993,15064,15134,15203,15261,15337,15408,15482,15568,15618,15723,15820,15890,15955,16032,17087,17865",
+                        "endLines": "198,218,219,220,221,222,223,224,225,226,229,230,231,232,233,234,235,236,237,238,239,242,243,244,245,246,247,248,249,250,251,252,253,254,255,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,273,274,275,276,277,278,279,280,281,282,283,284,285,286,287,317,320",
+                        "endColumns": "72,87,85,80,83,68,64,82,105,85,13,53,68,60,68,88,94,73,96,92,97,13,90,87,95,97,63,67,86,93,66,71,71,100,108,75,68,47,65,63,73,74,70,56,56,57,71,66,49,68,53,70,70,69,68,57,75,70,73,85,49,104,96,69,64,76,81,12,12",
+                        "endOffsets": "9661,11055,11141,11222,11306,11375,11440,11523,11629,11715,11835,11889,11958,12019,12088,12177,12272,12346,12443,12536,12634,12783,12874,12962,13058,13156,13220,13288,13375,13469,13536,13608,13680,13781,13890,13966,14035,14083,14149,14213,14287,14362,14433,14490,14547,14605,14677,14744,14794,14863,14917,14988,15059,15129,15198,15256,15332,15403,15477,15563,15613,15718,15815,15885,15950,16027,16109,17860,18013"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\a11665589e5e7aa76219d7651cc6a1ea\\transformed\\appcompat-resources-1.6.1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,18,24,34,50",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,480,658,942,1353",
+                        "endLines": "17,23,33,49,53",
+                        "endColumns": "24,24,24,24,24",
+                        "endOffsets": "475,653,937,1348,1475"
+                    },
+                    "to": {
+                        "startLines": "350,366,372,565,581",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "19768,20193,20371,27212,27623",
+                        "endLines": "365,371,381,580,584",
+                        "endColumns": "24,24,24,24,24",
+                        "endOffsets": "20188,20366,20650,27618,27745"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\a408e64284d0cd0386795a3adf22b0d8\\transformed\\lifecycle-runtime\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "53",
-                        "endOffsets": "104"
+                        "endColumns": "42",
+                        "endOffsets": "93"
                     },
                     "to": {
-                        "startLines": "195",
+                        "startLines": "192",
                         "startColumns": "4",
-                        "startOffsets": "9436",
-                        "endColumns": "53",
-                        "endOffsets": "9485"
+                        "startOffsets": "9272",
+                        "endColumns": "42",
+                        "endOffsets": "9310"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\naczu\\.gradle\\caches\\9.5.0\\transforms\\e6fa57d5cc54e115e529efe525e8c65b\\transformed\\navigationevent\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "60",
+                        "endOffsets": "111"
+                    },
+                    "to": {
+                        "startLines": "193",
+                        "startColumns": "4",
+                        "startOffsets": "9315",
+                        "endColumns": "60",
+                        "endOffsets": "9371"
                     }
                 }
             ]

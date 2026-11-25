@@ -8,6 +8,11 @@ import android.net.Uri
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -175,19 +180,29 @@ fun PantallaFormulario(
                 }
             }
 
-            if (imagenUri != null) {
-                AsyncImage(
-                    model = imagenUri,
-                    contentDescription = "Foto del problema reportado",
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(190.dp)
-                        .clip(RoundedCornerShape(12.dp)),
-                    contentScale = ContentScale.Crop
-                )
+            AnimatedVisibility(
+                visible = imagenUri != null,
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
+                imagenUri?.let { uri ->
+                    AsyncImage(
+                        model = uri,
+                        contentDescription = "Foto del problema reportado",
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(190.dp)
+                            .clip(RoundedCornerShape(12.dp)),
+                        contentScale = ContentScale.Crop
+                    )
+                }
             }
 
-            if (errorMensaje.isNotEmpty()) {
+            AnimatedVisibility(
+                visible = errorMensaje.isNotEmpty(),
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
                 Text(
                     text = errorMensaje,
                     color = MaterialTheme.colorScheme.error,

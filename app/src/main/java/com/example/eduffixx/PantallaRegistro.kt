@@ -1,5 +1,10 @@
 package com.example.eduffixx
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.shrinkVertically
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -125,7 +130,11 @@ fun PantallaRegistro(
                 )
             }
 
-            if (errorMensaje.isNotEmpty()) {
+            AnimatedVisibility(
+                visible = errorMensaje.isNotEmpty(),
+                enter = fadeIn() + expandVertically(),
+                exit = fadeOut() + shrinkVertically()
+            ) {
                 Text(
                     text = errorMensaje,
                     color = MaterialTheme.colorScheme.error,
